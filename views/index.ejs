@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %> 
+
+<% if (locals.character) { %>
+<% character.forEach(card => { %>
+
+    <div class="card">
+    <div class="image">
+        <img src="<%= card.image %>" alt="Cartoon" />
+    </div>
+    <div class="details">
+        <div class="titlebox">
+        <h2 class="titleName"><%= card.name %></h2>
+        <% if (card.status == "Dead") { %>
+            <small><span style="background-color: red;"></span><%= card.status %></small>
+       <% } else { %>
+        <small><span style="background-color: green;"></span><%= card.status %></small>
+        <% } %>
+        </div>
+        <p>Species: <%= card.species %></p>
+        <p>Type: <%= card.type %></p>
+        <p>Gender: <%= card.gender %></p>
+        <p>Location: <%= card.location.name %></p>
+    </div>
+    </div>
+
+<% }); %>
+<% } %> 
+<%- include('partials/footer.ejs') %>
